@@ -2,14 +2,12 @@ import { api } from '../helpers/api.js';
 import { expect } from "chai";
 import 'dotenv/config'
 import { comTokenDeAdmin } from '../helpers/auth.js';
-import { novoAluno } from '../factories/alunosFactory.js';
-import { novaDisciplina } from '../factories/disciplinasFactory.js';
 import testesDeMatriculas from '../fixtures/matriculas.json' with { type: 'json' };
 
 
 describe('Matricula de Aluno em Disciplina', () =>{
     testesDeMatriculas.forEach(testeDeMatricula => {
-        it.only (testeDeMatricula.testTitle, async() => {
+        it(testeDeMatricula.testTitle, async() => {
         //Arrange (Given/Dado que/ Preparar)
         //Cadastrar o aluno e cadastrar a disciplina 
         const cadastroAlunoResposta = await api()
